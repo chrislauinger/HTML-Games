@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<body onload = "do_game()"> </body>
+
+<script>
+  var colors = ["Aqua", "Black", "Coral", "Gold", "Green",
+               "Maroon", "Orange", "Red", "Tan", "Yellow"];
+  var correct_color;
+  var guesses = 0;
+  var finished = false;
+  var guess_input;
+  function do_game(){
+
+    var random_number = Math.floor(Math.random() * colors.length);
+    correct_color = colors[random_number];
+    while (!finished){
+      guess_input = prompt("I am thinking of one of these colors \n\n" +
+                           colors.join(", ") + "\n\n What color am I thinking of?" );
+      guesses++;
+      finished = check_guess(guess_input);
+    }
+  }
+
+  function check_guess(color){
+    if (colors.indexOf(color) == -1){
+      alert("Sorry, I don't reckognize your color");
+      return false;
+    }
+    else if(color < correct_color){
+      alert("Your color is alphabetically lower than mine");
+      return false;
+    }
+    else if(color > correct_color){
+      alert("Your color is alphabetically higher than mine");
+      return false;
+    }
+    else{
+      myBody=document.getElementsByTagName("body")[0];
+      myBody.style.background= correct_color;
+      alert("Congratulations! You have guessed the right color!" +
+            "\n\n It took you " + guesses  + " guess" + ((guesses > 1) ? "es" : "") + " to finish the game");
+      return true;
+    }
+  }
+</script>
+
+</html>

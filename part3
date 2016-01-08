@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+
+<head>
+  <style>
+    fieldset {background-color:lightyellow; border:10px solid yellow;
+      margin-bottom:10px; width:720px;}
+    label {width:180px; color: blue; display:inline-block; text-align: center;
+     text-align: right;}
+     mark {color: white; width:40px; display: inline-block; text-align: center}
+     textarea {width:360px ;height:50px ;}
+    .autoWidth {width:auto}
+    .minWords {background-color: red}
+    .maxWords {background-color: purple}
+  </style>
+</head>
+<body>
+
+<h1>Please Enter Your Details For Out Dating Website! </h1>
+
+<form action = "destination.php" method = "post" enctype="multipart/form-data">
+    <fieldset>
+        <legend> Your Face </legend>
+        <label for = "avatar"> Your Image </label>
+        <input type = "file" name = "avatar" required> <br>
+        <label for = "preview"> Image Preview: </label> <img id = "preview" name = "avatar" width = "100px" >
+    </fieldset>
+    <fieldset>
+        <legend> Your General Details </legend>
+        <label for = "name"> Name: </label>
+        <input type = "text" name = "name" value = "Your Full Name" required> <br>
+        <label for = "gender"> Gender: </label>
+        <input type = "radio" class = "autoWidth" name = "male" id = "male" value = "male" required> Male
+        <input type = "radio" class = "autoWidth" name = "female" id = "female" value = "female" required> Female <br>
+        <label for = "age"> Age: </label>
+        <input type = "number" name = "age" value = "18" required> <br>
+        <label for = "dob"> Date of Birth:
+        </label> <input type = "date" name = "dob"> <br>
+        <label for = "color"> Favorite Color:
+        </label> <input type = "color" name = "color"> <br>
+        <label for = "country"> Which Country:
+        </label> <select type = "text" name = "country">
+                        <option value = "" > </option>
+                        <option value = "Mexico" > Mexico </option>
+                        <option value = "Canada" > Canada </option>
+                        <option value = "France" > France </option>
+                        <option value = "Australia" > Australia </option>
+                        <option value = "USA" > USA </option>
+                      </select>
+    </fieldset>
+    <fieldset>
+        <legend> Your Indicators </legend>
+        <label for = "height"> Height: </label>
+         <mark class = "minWords"> Short </mark>
+         <input type="range" min="0" max="100" name = "height">
+         <mark  class = "maxWords"> Tall </mark> <br>
+        <label for = "salary"> Salary: </label>
+         <mark class = "minWords"> Poor </mark>
+           <input type="range" min="0" max="100" name = "salary">
+         <mark class = "maxWords"> Rich </mark>
+    </fieldset>
+    <fieldset>
+        <legend> Your Contact Information </legend>
+        <label for = "email"> Email:  </label>
+        <input type="email" name = "email" required> <br>
+        <label for = "mobile"> Mobile:  </label>
+        <input type="tel" name = "tel"> <br>
+        <label for = "address"> Address:  </label>
+        <textarea name = "address"> </textarea> <br>
+        <label for = "method"> Method to contact you:</label>
+        <input class = "autoWidth" type="checkbox" name = "contact" value = "email"> Email
+        <input class = "autoWidth" type="checkbox" name = "contact" value = "whatsapp"> Whatsapp
+        <input class = "autoWidth" type="checkbox" name = "contact" value = "inapp"> In-app chat
+    </fieldset>
+    <input type = "submit" value = "Submit" name = "submit">
+</form>
+
+</body>
+</html>

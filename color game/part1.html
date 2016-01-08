@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body onload = "do_game()"> </body>
+
+<script>
+  var colors = ["Aqua", "Black", "Coral", "Gold", "Green",
+               "Maroon", "Orange", "Red", "Tan", "Yellow"];
+  var correct_color;
+  var guesses = 0;
+  var finished = false;
+  var guess_input;
+  function do_game(){
+
+    var random_number = Math.floor(Math.random() * colors.length);
+    correct_color = colors[random_number];
+    while (!finished){
+      guess_input = prompt("I am thinking of one of these colors \n\n" +
+                           colors.join(", ") + "\n\n What color am I thinking of?" );
+      guesses++;
+      finished = check_guess(guess_input);
+    }
+  }
+
+  function check_guess(color){
+    if (colors.indexOf(color) == -1){
+      return false;
+    }
+    else if(color < correct_color){
+      return false;
+    }
+    else if(color > correct_color){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+</script>
+
+</html>
